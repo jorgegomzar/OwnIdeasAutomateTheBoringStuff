@@ -30,6 +30,7 @@ def check(total):
                 print('No update')
             elif(num < total):
                 print('Update')
+                print('\a')
                 pymsgbox.alert('New comment on issue!', 'GitHub update')
             else:
                 print('A comment has been deleted')
