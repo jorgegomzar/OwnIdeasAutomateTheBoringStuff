@@ -4,10 +4,11 @@ import requests, json, pymsgbox
 # Requires python3-tk package and requests, pymsgbox pip3 libs
 
 # change url for your issue of interest
-ISSUE_URL = 'https://api.github.com/repos/Linux74656/SpaceEngineersLinuxPatches/issues/19' 
+ISSUE_URL = 'https://api.github.com/repos/Linux74656/SpaceEngineersLinuxPatches/issues/19/' 
+FILE_PATH = '/home/jorge/Documentos/Proyectos/PYTHON/Utilidades/'
 
 def main():
-    COMMENT_URL = ISSUE_URL + '/comments?page={}'
+    COMMENT_URL = ISSUE_URL + 'comments?page={}'
     num = 1
     page = 1
     total = 0
@@ -23,7 +24,7 @@ def main():
 
 def check(total):
     try:
-        with open('n_comments.txt', 'rt') as txt:
+        with open(FILE_PATH + 'n_comments.txt', 'rt') as txt:
             num = int(txt.readline())
             if(num == total):
                 print('No update')
@@ -36,7 +37,7 @@ def check(total):
         print("File not accessible")
 
 def save(total):
-    with open('n_comments.txt', 'wt') as txt:
+    with open(FILE_PATH + 'n_comments.txt', 'wt') as txt:
         txt.write(str(total))
 
 main()
